@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="emailPageDef"
+                Package="blog.anirbanm.mail.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="var_from" Type="java.lang.String"/>
+      <variable Name="var_to" Type="java.lang.String"/>
+      <variable Name="var_cc" Type="java.lang.String"/>
+      <variable Name="var_bcc" Type="java.lang.String"/>
+      <variable Name="var_subject" Type="java.lang.String"/>
+      <variable Name="var_text" Type="java.lang.String"/>
+      <variable Name="var_password" Type="java.lang.String"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="variables" id="from">
+      <AttrNames>
+        <Item Value="var_from"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="to">
+      <AttrNames>
+        <Item Value="var_to"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="cc">
+      <AttrNames>
+        <Item Value="var_cc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="bcc">
+      <AttrNames>
+        <Item Value="var_bcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="subject">
+      <AttrNames>
+        <Item Value="var_subject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="text">
+      <AttrNames>
+        <Item Value="var_text"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="password">
+      <AttrNames>
+        <Item Value="var_password"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="blog.anirbanm.mail.view" ClientType="Generic">
+  <pageMap>
+    <page path="/email.jspx" usageId="blog_anirbanm_mail_view_emailPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="blog_anirbanm_mail_view_emailPageDef" path="blog.anirbanm.mail.view.pageDefs.emailPageDef"/>
+  </pageDefinitionUsages>
+</Application>

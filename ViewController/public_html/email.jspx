@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Email" id="d1">
+            <af:form id="f1">
+                <af:panelBox text="Email Service" id="pb1" showDisclosure="false">
+                    <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText label="From" id="it1" autoComplete="off" columns="20"
+                                          value="#{bindings.from.inputValue}" autoSubmit="true"/>
+                            <af:inputText label="To" id="it2" autoComplete="off" columns="40"
+                                          value="#{bindings.to.inputValue}" autoSubmit="true"/>
+                            <af:inputText label="Cc" id="it3" autoComplete="off" columns="40"
+                                          value="#{bindings.cc.inputValue}" autoSubmit="true"/>
+                            <af:inputText label="Bcc" id="it4" autoComplete="off" columns="40"
+                                          value="#{bindings.bcc.inputValue}" autoSubmit="true"/>
+                            <af:inputText label="Subject" id="it5" autoComplete="off" columns="80"
+                                          value="#{bindings.subject.inputValue}" autoSubmit="true"/>
+                            <af:inputText label="Content" id="it6" autoComplete="off" columns="80" rows="6"
+                                          value="#{bindings.text.inputValue}" autoSubmit="true"/>
+                        </af:panelFormLayout>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:panelGroupLayout id="pgl2" layout="horizontal">
+                            <af:button text="Send" id="b1">
+                                <af:showPopupBehavior popupId="p1"/>
+                            </af:button>
+                            <af:spacer width="10" height="10" id="s1"/>
+                            <af:button text="Cancel" id="b2" immediate="true" actionListener="#{emailBean.cleanup}">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                        <af:popup childCreation="deferred" contentDelivery="lazyUncached" autoCancel="disabled" id="p1"
+                                  popupCanceledListener="#{emailBean.cancelSend}">
+                            <af:dialog id="d2" title="Authenticate" type="okCancel" affirmativeTextAndAccessKey="Send"
+                                       cancelTextAndAccessKey="Cancel" dialogListener="#{emailBean.sendEmail}">
+                                <af:inputText label="Password" id="it7" secret="true"
+                                              value="#{bindings.password.inputValue}"/>
+                            </af:dialog>
+                        </af:popup>
+                    </af:panelGroupLayout>
+                </af:panelBox>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
